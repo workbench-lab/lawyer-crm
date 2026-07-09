@@ -50,6 +50,7 @@ export function AddClientForm({
                 if (errors.name) setErrors((er) => ({ ...er, name: undefined }));
               }}
               placeholder="Петрова Мария"
+              maxLength={80}
               disabled={pending}
             />
           </span>

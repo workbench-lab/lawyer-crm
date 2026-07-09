@@ -90,7 +90,7 @@ export function ClientsTable({
             <div className="client-card-top">
               <span className="client-cell">
                 <Avatar name={client.name} />
-                <span>
+                <span className="client-cell-text">
                   <span className="client-name">{client.name}</span>
                   <span className="client-card-phone">
                     {client.phone ? (

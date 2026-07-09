@@ -572,13 +572,24 @@ button {
 .add-form-fields {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 14px;
+}
+
+/* базис 230px: когда два поля не влезают рядом — переносятся, а не сжимаются */
+.add-form .field {
+  flex: 1 1 230px;
+}
+
+.add-form .field-label {
+  white-space: nowrap;
 }
 
 .add-form .btn-primary {
   margin-top: 25px;
   min-width: 138px;
   height: 44px;
+  flex: 0 0 auto;
 }
 
 /* ════════════════════════════════════════════════════════
@@ -640,6 +651,16 @@ button {
   align-items: center;
   gap: 12px;
   min-width: 0;
+}
+
+.client-cell-text {
+  display: block;
+  min-width: 0;
+}
+
+/* в таблице длинное имя обрезается многоточием, а не распирает колонку */
+.clients-table .client-cell {
+  max-width: 300px;
 }
 
 .client-name {
