@@ -16,7 +16,7 @@ export const STATUS_META: Record<
   ClientStatus,
   { label: string; accent: string; badgeBg: string; badgeText: string }
 > = {
-  new: { label: 'Новый', accent: '#2a78d6', badgeBg: '#e7f0fb', badgeText: '#1c5cab' },
-  in_progress: { label: 'В работе', accent: '#eda100', badgeBg: '#faf0d2', badgeText: '#8a5a00' },
-  closed: { label: 'Закрыт', accent: '#008300', badgeBg: '#e3f2e3', badgeText: '#006300' },
+  new: { label: 'Новый', accent: '#2e90fa', badgeBg: '#e8f2fe', badgeText: '#175cd3' },
+  in_progress: { label: 'В работе', accent: '#f79009', badgeBg: '#fdf1df', badgeText: '#b54708' },
+  closed: { label: 'Закрыт', accent: '#12b76a', badgeBg: '#e3f8ec', badgeText: '#067647' },
 };

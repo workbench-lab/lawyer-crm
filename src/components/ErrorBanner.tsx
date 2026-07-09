@@ -1,3 +1,5 @@
+import { AlertCircle, X } from 'lucide-react';
+
 export function ErrorBanner({
   message,
   onDismiss,
@@ -7,9 +9,10 @@ export function ErrorBanner({
 }) {
   return (
     <div className="error-banner" role="alert">
+      <AlertCircle size={17} className="banner-icon" />
       <span>{message}</span>
       <button type="button" className="banner-close" onClick={onDismiss} aria-label="Скрыть">
-        ✕
+        <X size={15} />
       </button>
     </div>
   );

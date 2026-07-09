@@ -1,5 +1,17 @@
 import { useMemo } from 'react';
-import { STATUS_META, STATUS_ORDER, type Client, type ClientStatus } from '../types';
+import { Users, UserPlus, Briefcase, CheckCircle2 } from 'lucide-react';
+import { STATUS_META, type Client, type ClientStatus } from '../types';
+
+const CARDS: {
+  key: 'total' | ClientStatus;
+  label: string;
+  icon: typeof Users;
+}[] = [
+  { key: 'total', label: 'Всего клиентов', icon: Users },
+  { key: 'new', label: 'Новые', icon: UserPlus },
+  { key: 'in_progress', label: 'В работе', icon: Briefcase },
+  { key: 'closed', label: 'Закрытые', icon: CheckCircle2 },
+];
 
 export function StatCards({ clients }: { clients: Client[] }) {
   const counts = useMemo(() => {
@@ -10,22 +22,26 @@ export function StatCards({ clients }: { clients: Client[] }) {
 
   return (
     <section className="stat-grid" aria-label="Счётчики по статусам">
-      <div className="stat-card">
-        <div className="stat-value">{clients.length}</div>
-        <div className="stat-label">
-          <span className="stat-dot" style={{ background: '#898781' }} />
-          Всего клиентов
-        </div>
-      </div>
-      {STATUS_ORDER.map((status) => (
-        <div className="stat-card" key={status}>
-          <div className="stat-value">{counts[status]}</div>
-          <div className="stat-label">
-            <span className="stat-dot" style={{ background: STATUS_META[status].accent }} />
-            {STATUS_META[status].label}
+      {CARDS.map(({ key, label, icon: Icon }) => {
+        const value = key === 'total' ? clients.length : counts[key];
+        const accent = key === 'total' ? 'var(--brand)' : STATUS_META[key].accent;
+        const tint = key === 'total' ? 'var(--brand-tint)' : STATUS_META[key].badgeBg;
+        return (
+          <div className="stat-card" key={key}>
+            <span className="stat-icon" style={{ background: tint, color: accent }}>
+              <Icon size={19} strokeWidth={2.1} />
+            </span>
+            <div>
+              <div className="stat-value">
+                <span key={value} className="stat-value-num">
+                  {value}
+                </span>
+              </div>
+              <div className="stat-label">{label}</div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </section>
   );
 }
