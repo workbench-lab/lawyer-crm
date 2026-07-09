@@ -2,7 +2,7 @@
 
 Одностраничный дашборд для учёта клиентов юриста: таблица клиентов, добавление, смена статуса дела («Новый» → «В работе» → «Закрыт»), счётчики по статусам и Telegram-уведомление о каждом новом клиенте.
 
-**Живое демо:** https://lawyer-crm-workbench-labs-projects.vercel.app · **Код:** https://github.com/workbench-lab/lawyer-crm
+**Живое демо:** https://lawyer-crm-sobolev.vercel.app · **Код:** https://github.com/workbench-lab/lawyer-crm
 
 ## Возможности
 
